@@ -3,8 +3,6 @@
     <component :is="layout">
       <router-view/>
     </component>
-
-    <router-view/>
   </div>
 </template>
 
@@ -16,7 +14,6 @@ import MainLayout from '@/layouts/MainLayout.vue';
 export default {
   computed: {
     layout() {
-      console.log(this.$route.meta);
       return `${this.$route.meta.layout || 'empty'}-layout`;
     },
   },

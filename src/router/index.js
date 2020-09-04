@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
@@ -8,7 +7,9 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    meta: { layout: 'main' },
+
+    component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue'),
   },
   {
     path: '/login',
@@ -16,6 +17,13 @@ const routes = [
     meta: { layout: 'empty' },
 
     component: () => import(/* webpackChunkName: "Login" */ '../views/Login.vue'),
+  },
+  {
+    path: '/register',
+    name: 'register',
+    meta: { layout: 'empty' },
+
+    component: () => import(/* webpackChunkName: "Register" */ '../views/Register.vue'),
   },
   {
     path: '/categories',
@@ -29,14 +37,35 @@ const routes = [
     name: 'detail',
     meta: { layout: 'main' },
 
-    component: () => import(/* webpackChunkName: "Categories" */ '../views/Detail.vue'),
+    component: () => import(/* webpackChunkName: "Detail" */ '../views/Detail.vue'),
   },
   {
     path: '/history',
     name: 'history',
     meta: { layout: 'main' },
 
-    component: () => import(/* webpackChunkName: "Categories" */ '../views/History.vue'),
+    component: () => import(/* webpackChunkName: "History" */ '../views/History.vue'),
+  },
+  {
+    path: '/planning',
+    name: 'planning',
+    meta: { layout: 'main' },
+
+    component: () => import(/* webpackChunkName: "Categories" */ '../views/Categories.vue'),
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    meta: { layout: 'main' },
+
+    component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
+  },
+  {
+    path: '/record',
+    name: 'record',
+    meta: { layout: 'main' },
+
+    component: () => import(/* webpackChunkName: "Record" */ '../views/Record.vue'),
   },
 ];
 
