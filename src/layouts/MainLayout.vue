@@ -1,6 +1,7 @@
 <template>
   <div class="app-main-layout">
-    <Navbar @click="isOpen = ! isOpen" />
+
+    <Navbar @click="isOpen = !isOpen" />
 
     <Sidebar v-model="isOpen" />
 
@@ -11,9 +12,9 @@
     </main>
 
     <div class="fixed-action-btn">
-      <a class="btn-floating btn-large blue" href="#">
+      <router-link class="btn-floating btn-large blue" href="#" to="/record">
         <i class="large material-icons">add</i>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
@@ -24,9 +25,9 @@ import Sidebar from '@/components/app/Sidebar.vue';
 
 export default {
   name: 'main-layout',
-  date: {
+  data: () => ({
     isOpen: true,
-  },
+  }),
   components: {
     Navbar,
     Sidebar,

@@ -4,8 +4,12 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import 'materialize-css/dist/js/materialize';
+/* eslint-disable */
+import dateFilter from '@/filters/date-filter';
 
 Vue.config.productionTip = false;
+
+Vue.filter('date', dateFilter);
 
 new Vue({
   router,
